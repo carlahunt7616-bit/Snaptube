@@ -36,13 +36,14 @@ class ExampleRobolectricTest {
         }
         val resolved = context.packageManager.queryIntentActivities(shareIntent, 0)
         assertTrue(
-            "MainActivity should handle ACTION_SEND text/plain intents",
-            resolved.any { it.activityInfo.name.endsWith("MainActivity") }
+            "SharePopupActivity should handle ACTION_SEND text/plain intents",
+            resolved.any { it.activityInfo.name.endsWith("SharePopupActivity") }
         )
     }
 
     @Test
     fun mainActivity_launchesWithoutCompositionLocalCrash() {
         composeRule.onNodeWithTag("splash_screen").assertExists()
+        composeRule.onNodeWithTag("splash_watermark").assertExists()
     }
 }

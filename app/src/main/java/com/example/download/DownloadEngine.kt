@@ -237,7 +237,10 @@ class DownloadEngine(
 
         val requestBuilder = Request.Builder()
             .url(task.mediaUrl)
-            .header("User-Agent", "SnapTubeAndroid/1.0 (MediaDownloader)")
+            .header(
+                "User-Agent",
+                "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
+            )
 
         if (existingBytes > 0L) {
             requestBuilder.header("Range", "bytes=$existingBytes-")

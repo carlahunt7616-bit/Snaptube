@@ -120,7 +120,7 @@ fun SnapTubeTheme(
 
     val colorScheme = if (useDark) SnapTubeDarkColorScheme else SnapTubeLightColorScheme
     val extendedColors = SnapTubeExtendedColors(
-        brandGradient = Brush.linearGradient(listOf(SnapPurple, SnapBlue, SnapCyan)),
+        brandGradient = Brush.linearGradient(listOf(BrandGoldLight, BrandGoldPrimary, Color(0xFFF5A600))),
         splashGradient = Brush.linearGradient(
             listOf(BrandGoldLight, BrandGoldPrimary, Color(0xFFFF9F1C))
         ),

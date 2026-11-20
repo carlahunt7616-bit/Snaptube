@@ -180,9 +180,10 @@ class MediaLinkAnalyzer(private val okHttpClient: OkHttpClient) {
             resp.header("Accept-Ranges")?.contains("bytes", ignoreCase = true) == true
         val dispositionName = extractDispositionFileName(resp.header("Content-Disposition"))
         val pathLower = finalUrl.substringBefore('?').lowercase()
-        val hasMediaExt = MEDIA_EXTENSIONS.any { pathLower.endsWith(".$it") }
+        val dispLower = dispositionName?.lowercase().orEmpty()
+        val hasMediaExt = MEDIA_EXTENSIONS.any { pathLower.endsWith(".$it") || dispLower.endsWith(".$it") }
         val isMediaMime = contentType.startsWith("video/") || contentType.startsWith("audio/") ||
-            (contentType == "application/octet-stream" && hasMediaExt)
+            ((contentType == "application/octet-stream" || contentType == "binary/octet-stream") && hasMediaExt)
 
         return DirectProbeResult(
             finalUrl = finalUrl,
@@ -267,26 +268,53 @@ class MediaLinkAnalyzer(private val okHttpClient: OkHttpClient) {
         val thumbnail = extractMeta(html, "og:image")
 
         val candidateUrls = linkedSetOf<String>()
-        extractMeta(html, "og:video:secure_url")?.let { candidateUrls.add(it) }
-        extractMeta(html, "og:video")?.let { candidateUrls.add(it) }
-        extractMeta(html, "og:audio")?.let { candidateUrls.add(it) }
+        fun addCandidate(raw: String?) {
+            val cleaned = raw?.trim()?.takeIf { it.isNotBlank() } ?: return
+            val resolved = resolveUrl(url, decodeHtmlEntities(cleaned)) ?: return
+            if (resolved.startsWith("http://", ignoreCase = true) || resolved.startsWith("https://", ignoreCase = true)) {
+                candidateUrls.add(resolved)
+            }
+        }
+
+        addCandidate(extractMeta(html, "og:video:secure_url"))
+        addCandidate(extractMeta(html, "og:video"))
+        addCandidate(extractMeta(html, "og:audio"))
+        addCandidate(extractMeta(html, "twitter:player:stream"))
 
         val sourceRegex = Regex(
-            """<(?:video|audio|source)[^>]+src=["'](https?://[^"']+)["']""",
+            """<(?:video|audio|source)[^>]+src=["']([^"']+)["']""",
             RegexOption.IGNORE_CASE
         )
-        sourceRegex.findAll(html).take(6).forEach { match ->
-            candidateUrls.add(match.groupValues[1])
+        sourceRegex.findAll(html).take(8).forEach { match ->
+            addCandidate(match.groupValues[1])
+        }
+
+        val jsonLdContentUrlRegex = Regex(
+            """"contentUrl"\s*:\s*"(https?:\\?/\\?/[^"]+)"""",
+            RegexOption.IGNORE_CASE
+        )
+        jsonLdContentUrlRegex.findAll(html).take(6).forEach { match ->
+            addCandidate(match.groupValues[1].replace("\\/", "/"))
+        }
+
+        val anchorMediaRegex = Regex(
+            """<a[^>]+href=["']([^"']+\.(?:mp4|webm|mov|mp3|m4a|ogg|aac)(?:\?[^"']*)?)["']""",
+            RegexOption.IGNORE_CASE
+        )
+        anchorMediaRegex.findAll(html).take(8).forEach { match ->
+            addCandidate(match.groupValues[1])
         }
 
         val verifiedOptions = mutableListOf<MediaOption>()
+        val seenFinalUrls = mutableSetOf<String>()
         var primarySize = -1L
 
-        for ((index, candidate) in candidateUrls.withIndex()) {
+        for ((index, candidate) in candidateUrls.take(8).withIndex()) {
             val probed = probeDirectMedia(candidate) ?: continue
             if (!probed.isDirectMedia) continue
+            if (!seenFinalUrls.add(probed.finalUrl)) continue
             val isAudio = probed.contentType.startsWith("audio/") ||
-                candidate.substringBefore('?').lowercase().let { it.endsWith(".mp3") || it.endsWith(".m4a") || it.endsWith(".ogg") }
+                candidate.substringBefore('?').lowercase().let { it.endsWith(".mp3") || it.endsWith(".m4a") || it.endsWith(".ogg") || it.endsWith(".aac") }
             val ext = candidate.substringBefore('?').substringAfterLast('.', "").lowercase()
             val format = if (ext in MEDIA_EXTENSIONS) MediaFormat.fromExtension(ext) else MediaFormat.fromMime(probed.contentType)
             if (primarySize < 0L && probed.contentLength > 0L) {
@@ -301,7 +329,7 @@ class MediaLinkAnalyzer(private val okHttpClient: OkHttpClient) {
                     downloadUrl = probed.finalUrl,
                     estimatedBytes = probed.contentLength,
                     supportsRange = probed.acceptsRanges,
-                    isExtraFormat = format == MediaFormat.WEBM || format == MediaFormat.OGG
+                    isExtraFormat = verifiedOptions.size >= 4 || format == MediaFormat.WEBM || format == MediaFormat.OGG
                 )
             )
         }
@@ -428,8 +456,13 @@ class MediaLinkAnalyzer(private val okHttpClient: OkHttpClient) {
             .replace("&lt;", "<")
             .replace("&gt;", ">")
 
+    private fun resolveUrl(baseUrl: String, candidate: String): String? = runCatching {
+        URI(baseUrl).resolve(candidate).toString()
+    }.getOrNull()
+
     companion object {
-        private const val USER_AGENT = "SnapTubeAndroid/1.0 (MediaDownloader)"
+        private const val USER_AGENT =
+            "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36"
         private const val MAX_HTML_BYTES = 256L * 1024L
         private val MEDIA_EXTENSIONS = setOf("mp4", "webm", "mov", "mp3", "m4a", "ogg", "aac")
     }

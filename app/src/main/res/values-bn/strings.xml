@@ -2,6 +2,7 @@
     <!-- Brand & Navigation -->
     <string name="app_name">SnapTube</string>
     <string name="app_tagline">যে কোনো সময়, যে কোনো স্থান থেকে ডাউনলোড করুন।</string>
+    <string name="splash_watermark">Webtecit Apps</string>
     <string name="share_action_label">SnapTube দিয়ে ডাউনলোড</string>
     <string name="nav_home">হোম</string>
     <string name="nav_downloads">ডাউনলোড</string>
@@ -34,14 +35,16 @@
     <string name="section_video">ভিডিও</string>
     <string name="more_formats">আরও ফরম্যাট</string>
     <string name="less_formats">কম ফরম্যাট</string>
-    <string name="start_download">ডাউনলোড শুরু করুন</string>
+    <string name="formats_all">সব</string>
+    <string name="start_download">ডাউনলোড</string>
     <string name="size_unknown">সাইজ পরিবর্তনশীল</string>
     <string name="duration_unknown">সময়কাল অজানা</string>
     <string name="unsupported_source_title">অনুমোদিত উৎস প্রয়োজন</string>
-    <string name="unsupported_source_hint">SnapTube কপিরাইট, DRM ও প্ল্যাটফর্মের শর্তাবলি মেনে চলে। সরাসরি মিডিয়া URL বা অনুমোদিত ওপেন-অ্যাক্সেস উৎস ব্যবহার করুন।</string>
+    <string name="unsupported_source_hint">SnapTube Google Play ও কপিরাইট নীতিমালা মেনে চলে। ডাউনলোড করতে সরাসরি ভিডিও/অডিও লিংক (.mp4, .mp3, .m4a, .webm) অথবা ওপেন-অ্যাক্সেস মিডিয়া পেজ ব্যবহার করুন।</string>
     <string name="analysis_failed_title">লিংক বিশ্লেষণ করা যায়নি</string>
     <string name="action_retry">আবার চেষ্টা</string>
     <string name="action_close">বন্ধ করুন</string>
+    <string name="action_open_app">SnapTube খুলুন</string>
     <string name="download_queued_snackbar">ডাউনলোড কিউতে যুক্ত হয়েছে</string>
     <string name="wifi_only_blocked">শুধুমাত্র Wi-Fi মোড চালু আছে। Wi-Fi সংযোগ দিন বা সেটিংস পরিবর্তন করুন।</string>
 

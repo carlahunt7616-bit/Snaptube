@@ -567,7 +567,7 @@ fun GradientPrimaryButton(
     testTag: String = ""
 ) {
     val extended = LocalSnapTubeColors.current
-    val shape = RoundedCornerShape(16.dp)
+    val shape = RoundedCornerShape(50)
     val bgBrush = if (enabled) {
         extended.brandGradient
     } else {
@@ -578,22 +578,22 @@ fun GradientPrimaryButton(
             )
         )
     }
-    val contentColor = if (enabled) Color.White else MaterialTheme.colorScheme.onSurfaceVariant
+    val contentColor = if (enabled) Color(0xFF1A1205) else MaterialTheme.colorScheme.onSurfaceVariant
 
     Box(
         modifier = modifier
             .then(if (testTag.isNotBlank()) Modifier.testTag(testTag) else Modifier)
             .defaultMinSize(minHeight = 52.dp)
             .shadow(
-                elevation = if (enabled) 6.dp else 0.dp,
+                elevation = if (enabled) 4.dp else 0.dp,
                 shape = shape,
-                ambientColor = SnapPurple.copy(alpha = 0.25f),
-                spotColor = SnapBlue.copy(alpha = 0.3f)
+                ambientColor = BrandGoldPrimary.copy(alpha = 0.28f),
+                spotColor = BrandGoldPrimary.copy(alpha = 0.34f)
             )
             .clip(shape)
             .background(bgBrush)
             .clickable(enabled = enabled && !loading, role = Role.Button, onClick = onClick)
-            .padding(PaddingValues(horizontal = 20.dp, vertical = 14.dp)),
+            .padding(PaddingValues(horizontal = 22.dp, vertical = 14.dp)),
         contentAlignment = Alignment.Center
     ) {
         Row(
@@ -603,7 +603,7 @@ fun GradientPrimaryButton(
             if (loading) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(18.dp),
-                    color = Color.White,
+                    color = contentColor,
                     strokeWidth = 2.2.dp
                 )
                 Spacer(Modifier.width(10.dp))
@@ -618,7 +618,7 @@ fun GradientPrimaryButton(
             }
             Text(
                 text = text,
-                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+                style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                 color = contentColor
             )
         }
