@@ -1,0 +1,188 @@
+<resources>
+    <!-- Brand & Navigation -->
+    <string name="app_name">SnapTube</string>
+    <string name="app_tagline">যে কোনো সময়, যে কোনো স্থান থেকে ডাউনলোড করুন।</string>
+    <string name="share_action_label">SnapTube দিয়ে ডাউনলোড</string>
+    <string name="nav_home">হোম</string>
+    <string name="nav_downloads">ডাউনলোড</string>
+    <string name="nav_library">লাইব্রেরি</string>
+    <string name="nav_settings">সেটিংস</string>
+
+    <!-- Home Screen -->
+    <string name="home_hero_title">মিডিয়া লিংক পেস্ট করুন</string>
+    <string name="home_hero_subtitle">সরাসরি ভিডিও ও অডিও লিংক বিশ্লেষণ করুন অথবা অন্য অ্যাপ থেকে শেয়ার করুন</string>
+    <string name="url_input_hint">https://example.com/video.mp4</string>
+    <string name="action_paste">পেস্ট</string>
+    <string name="action_clear">মুছুন</string>
+    <string name="action_analyze">লিংক বিশ্লেষণ করুন</string>
+    <string name="action_analyzing">বিশ্লেষণ চলছে…</string>
+    <string name="supported_platforms_title">প্ল্যাটফর্ম শনাক্তকরণ</string>
+    <string name="supported_platforms_note">সরাসরি লিংক ও অনুমোদিত উৎস স্বাভাবিকভাবে ডাউনলোড হয়; DRM-সুরক্ষিত সাইটে নীতিমালা বার্তা দেখানো হয়।</string>
+    <string name="sample_links_title">পরীক্ষামূলক মিডিয়া লিংক</string>
+    <string name="sample_links_subtitle">ডাউনলোড ইঞ্জিন তাৎক্ষণিক পরীক্ষা করতে পাবলিক ডোমেইন ফাইল ব্যবহার করুন</string>
+    <string name="recent_downloads_title">সাম্প্রতিক ডাউনলোড</string>
+    <string name="see_all">সব দেখুন</string>
+    <string name="share_tip_title">যেকোনো অ্যাপ থেকে সরাসরি শেয়ার করুন</string>
+    <string name="share_tip_body">ভিডিও লিংকে Share চাপুন এবং SnapTube নির্বাচন করুন—ডাউনলোড অপশন স্বয়ংক্রিয়ভাবে খুলে যাবে।</string>
+    <string name="clipboard_empty">ক্লিপবোর্ডে কোনো লিংক নেই</string>
+    <string name="invalid_url_error">অনুগ্রহ করে একটি বৈধ http:// বা https:// মিডিয়া লিংক দিন।</string>
+    <string name="duplicate_url_notice">এই লিংকটি ইতিমধ্যে আপনার ডাউনলোড তালিকায় সক্রিয় আছে।</string>
+
+    <!-- Link Analyzer & Download Bottom Sheet -->
+    <string name="download_sheet_title">ডাউনলোড</string>
+    <string name="section_music">মিউজিক (অডিও)</string>
+    <string name="section_video">ভিডিও</string>
+    <string name="more_formats">আরও ফরম্যাট</string>
+    <string name="less_formats">কম ফরম্যাট</string>
+    <string name="start_download">ডাউনলোড শুরু করুন</string>
+    <string name="size_unknown">সাইজ পরিবর্তনশীল</string>
+    <string name="duration_unknown">সময়কাল অজানা</string>
+    <string name="unsupported_source_title">অনুমোদিত উৎস প্রয়োজন</string>
+    <string name="unsupported_source_hint">SnapTube কপিরাইট, DRM ও প্ল্যাটফর্মের শর্তাবলি মেনে চলে। সরাসরি মিডিয়া URL বা অনুমোদিত ওপেন-অ্যাক্সেস উৎস ব্যবহার করুন।</string>
+    <string name="analysis_failed_title">লিংক বিশ্লেষণ করা যায়নি</string>
+    <string name="action_retry">আবার চেষ্টা</string>
+    <string name="action_close">বন্ধ করুন</string>
+    <string name="download_queued_snackbar">ডাউনলোড কিউতে যুক্ত হয়েছে</string>
+    <string name="wifi_only_blocked">শুধুমাত্র Wi-Fi মোড চালু আছে। Wi-Fi সংযোগ দিন বা সেটিংস পরিবর্তন করুন।</string>
+
+    <!-- Download Manager -->
+    <string name="tab_downloading">ডাউনলোড হচ্ছে</string>
+    <string name="tab_completed">সম্পন্ন</string>
+    <string name="status_queued">অপেক্ষমাণ</string>
+    <string name="status_downloading">ডাউনলোড হচ্ছে</string>
+    <string name="status_paused">বিরতি</string>
+    <string name="status_completed">সম্পন্ন</string>
+    <string name="status_failed">ব্যর্থ</string>
+    <string name="status_canceled">বাতিল</string>
+    <string name="action_pause">বিরতি</string>
+    <string name="action_resume">চালিয়ে যান</string>
+    <string name="action_cancel">বাতিল</string>
+    <string name="empty_downloading_title">কোনো সক্রিয় ডাউনলোড নেই</string>
+    <string name="empty_downloading_subtitle">হোম থেকে লিংক পেস্ট করুন অথবা অন্য অ্যাপ থেকে SnapTube-এ শেয়ার করুন।</string>
+    <string name="queue_summary_format">%1$d সক্রিয় • %2$d অপেক্ষমাণ</string>
+    <string name="eta_remaining_format">%1$s বাকি</string>
+
+    <!-- Completed Library -->
+    <string name="tab_videos">ভিডিও</string>
+    <string name="tab_audio">অডিও</string>
+    <string name="search_downloads_hint">ডাউনলোড ফাইল খুঁজুন…</string>
+    <string name="sort_newest">নতুন</string>
+    <string name="sort_name">নাম</string>
+    <string name="sort_size">সাইজ</string>
+    <string name="action_open_external">বাইরের অ্যাপে খুলুন</string>
+    <string name="action_share">শেয়ার করুন</string>
+    <string name="action_rename">নাম পরিবর্তন</string>
+    <string name="action_delete">মুছে ফেলুন</string>
+    <string name="rename_dialog_title">ফাইলের নাম পরিবর্তন</string>
+    <string name="rename_hint">নতুন নাম লিখুন</string>
+    <string name="delete_dialog_title">ডাউনলোড মুছে ফেলবেন?</string>
+    <string name="delete_dialog_body">এটি SnapTube থেকে \"%1$s\" সরাবে এবং স্থানীয় ফাইল মুছে ফেলবে।</string>
+    <string name="action_save">সংরক্ষণ</string>
+    <string name="empty_library_title">আপনার লাইব্রেরি খালি</string>
+    <string name="empty_library_subtitle">সম্পন্ন হওয়া ভিডিও ও অডিও ফাইল এখানে দেখা যাবে।</string>
+    <string name="no_external_app">এই ফাইল খোলার মতো কোনো অ্যাপ পাওয়া যায়নি।</string>
+    <string name="file_missing_error">স্টোরেজে ফাইলটি পাওয়া যায়নি।</string>
+
+    <!-- Settings -->
+    <string name="settings_title">সেটিংস</string>
+    <string name="settings_section_appearance">থিম ও চেহারা</string>
+    <string name="theme_system">সিস্টেম ডিফল্ট</string>
+    <string name="theme_light">লাইট মোড</string>
+    <string name="theme_dark">ডার্ক মোড</string>
+    <string name="settings_section_language">ভাষা</string>
+    <string name="lang_english">English</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="settings_section_downloads">ডাউনলোড সেটিংস</string>
+    <string name="setting_default_video_quality">ডিফল্ট ভিডিও কোয়ালিটি</string>
+    <string name="setting_default_audio_quality">ডিফল্ট অডিও কোয়ালিটি</string>
+    <string name="setting_download_folder">ডাউনলোড ফোল্ডার</string>
+    <string name="default_folder_label">Downloads / SnapTube (সিস্টেম)</string>
+    <string name="setting_simultaneous_limit">একসাথে সর্বোচ্চ ডাউনলোড</string>
+    <string name="setting_wifi_only">শুধুমাত্র Wi-Fi ডাউনলোড</string>
+    <string name="setting_wifi_only_sub">মোবাইল ডেটাতে ডাউনলোড বন্ধ রাখুন</string>
+    <string name="setting_notifications">ডাউনলোড ও শেয়ার নোটিফিকেশন</string>
+    <string name="setting_notifications_sub">অগ্রগতি, সম্পন্ন এবং শেয়ার লিংক সতর্কতা দেখান</string>
+    <string name="settings_section_storage">স্টোরেজ</string>
+    <string name="storage_used_label">SnapTube ডাউনলোডস</string>
+    <string name="storage_files_count">%1$dটি ফাইল • %2$s</string>
+    <string name="setting_clear_history">ডাউনলোড ইতিহাস মুছুন</string>
+    <string name="setting_clear_history_sub">সংরক্ষিত ফাইল না মুছেই ইতিহাস পরিষ্কার করে</string>
+    <string name="clear_history_confirm_title">ইতিহাস মুছবেন?</string>
+    <string name="clear_history_confirm_body">সম্পন্ন ও ব্যর্থ সব ডাউনলোডের রেকর্ড ইতিহাস থেকে মুছে যাবে।</string>
+    <string name="history_cleared">ডাউনলোড ইতিহাস মুছে ফেলা হয়েছে</string>
+    <string name="settings_section_other">অন্যান্য</string>
+    <string name="setting_about">SnapTube সম্পর্কে</string>
+    <string name="setting_privacy">গোপনীয়তা নীতি</string>
+    <string name="setting_terms">শর্তাবলি</string>
+    <string name="setting_disclaimer">ডিসক্লেইমার</string>
+    <string name="setting_version">অ্যাপ সংস্করণ</string>
+    <string name="reset_default_folder">ডিফল্ট রিসেট</string>
+
+    <!-- About & Legal -->
+    <string name="about_title">SnapTube সম্পর্কে</string>
+    <string name="about_developer_label">ডেভেলপার</string>
+    <string name="about_developer_value">MD AHOSHAN HABIB NAYON</string>
+    <string name="about_website_label">ওয়েবসাইট</string>
+    <string name="about_website_value">webtecit.com</string>
+    <string name="about_support_label">সাপোর্ট ইমেইল</string>
+    <string name="about_support_value">support.webtecit@gmail.com</string>
+    <string name="about_architecture_note">১০০% লোকাল ও সার্ভারবিহীন আর্কিটেকচার। আপনার সব তথ্য কেবল আপনার ডিভাইসেই সুরক্ষিত থাকে।</string>
+    <string name="about_trademark_note">পাবলিক রিলিজের আগে আপনার অঞ্চলে ট্রেডমার্কের প্রাপ্যতা যাচাই করুন।</string>
+
+    <!-- Built-in Media Player -->
+    <string name="player_now_playing">এখন চলছে</string>
+    <string name="player_play">চালান</string>
+    <string name="player_pause">বিরতি</string>
+    <string name="player_rewind_10">১০ সেকেন্ড পেছনে</string>
+    <string name="player_forward_10">১০ সেকেন্ড সামনে</string>
+    <string name="player_mute">মিউট</string>
+    <string name="player_unmute">আনমিউট</string>
+    <string name="player_loop_on">লুপ চালু</string>
+    <string name="player_loop_off">লুপ বন্ধ</string>
+    <string name="player_error_title">মিডিয়া চালানো যায়নি</string>
+    <string name="player_error_subtitle">ফাইলটি বিল্ট-ইন প্লেয়ারে সমর্থিত নাও হতে পারে অথবা সরানো হয়েছে। বাইরের অ্যাপ দিয়ে খোলার চেষ্টা করুন।</string>
+
+    <!-- Rate Us & Play Store Updates -->
+    <string name="setting_rate_us">রেটিং ও রিভিউ দিন</string>
+    <string name="setting_rate_us_sub">Google Play-তে আপনার মতামত জানান</string>
+    <string name="setting_check_update">আপডেট চেক করুন</string>
+    <string name="setting_check_update_sub">Google Play-তে নতুন ভার্সন আছে কিনা দেখুন</string>
+    <string name="rate_dialog_title">SnapTube কেমন লাগছে?</string>
+    <string name="rate_dialog_body">স্টার সিলেক্ট করে আপনার অভিজ্ঞতা রেট করুন। আপনার রিভিউ আমাদের অ্যাপটিকে আরও ভালো করতে সাহায্য করে।</string>
+    <string name="rate_submit_play">Play Store-এ রেট করুন</string>
+    <string name="rate_send_feedback">সাপোর্টে যোগাযোগ</string>
+    <string name="rate_later">পরে করব</string>
+    <string name="rate_thanks_message">SnapTube রেট করার জন্য ধন্যবাদ!</string>
+    <string name="update_available_title">নতুন আপডেট এসেছে!</string>
+    <string name="update_available_body">Google Play-তে SnapTube-এর নতুন ভার্সন পাওয়া গেছে। আরও ভালো পারফরম্যান্সের জন্য এখনই আপডেট করুন।</string>
+    <string name="update_action_now">আপডেট করুন</string>
+    <string name="update_action_later">পরে</string>
+    <string name="update_downloaded_banner">আপডেট ডাউনলোড সম্পন্ন হয়েছে, ইনস্টল করতে রিস্টার্ট করুন।</string>
+    <string name="update_action_restart">রিস্টার্ট করুন</string>
+    <string name="update_up_to_date">আপনি ইতিমধ্যে SnapTube-এর সর্বশেষ ভার্সন ব্যবহার করছেন।</string>
+    <string name="update_play_store_fallback">সর্বশেষ ভার্সন চেক করতে Google Play খোলা হচ্ছে…</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_share">শেয়ার করা লিংক</string>
+    <string name="notif_channel_share_desc">SnapTube-এ মিডিয়া লিংক শেয়ার হলে সতর্কতা</string>
+    <string name="notif_channel_progress">চলমান ডাউনলোড</string>
+    <string name="notif_channel_progress_desc">সরাসরি অগ্রগতি, গতি ও বিরতি/বাতিল নিয়ন্ত্রণ</string>
+    <string name="notif_channel_complete">সম্পন্ন ডাউনলোড</string>
+    <string name="notif_channel_complete_desc">ডাউনলোড শেষ হলে নোটিফিকেশন</string>
+    <string name="notif_share_title">ভিডিও লিংক শনাক্ত হয়েছে!</string>
+    <string name="notif_share_body">আপনার শেয়ার করা ভিডিওটি ডাউনলোডের জন্য প্রস্তুত।</string>
+    <string name="notif_action_open_download">ডাউনলোড খুলুন</string>
+    <string name="notif_action_dismiss">বাতিল করুন</string>
+    <string name="notif_complete_title">ডাউনলোড সম্পন্ন হয়েছে!</string>
+    <string name="notif_complete_body">আপনার ফাইলটি সফলভাবে ডাউনলোড হয়েছে।</string>
+    <string name="notif_failed_title">ডাউনলোড ব্যর্থ হয়েছে</string>
+    <string name="notif_active_summary">%1$dটি ডাউনলোড চলছে</string>
+
+    <!-- Accessibility -->
+    <string name="cd_brand_logo">SnapTube লোগো</string>
+    <string name="cd_settings">সেটিংস খুলুন</string>
+    <string name="cd_back">পেছনে যান</string>
+    <string name="cd_clear_url">URL মুছুন</string>
+    <string name="cd_thumbnail">মিডিয়া থাম্বনেইল</string>
+    <string name="cd_more_options">আরও অপশন</string>
+</resources>

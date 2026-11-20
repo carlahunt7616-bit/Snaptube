@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="snaptube_external_downloads" path="Downloads/" />
+    <files-path name="snaptube_internal_downloads" path="downloads/" />
+    <cache-path name="snaptube_cache" path="." />
+</paths>
