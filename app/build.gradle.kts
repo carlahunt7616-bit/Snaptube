@@ -125,6 +125,7 @@ dependencies {
   // implementation(libs.logging.interceptor)
   // implementation(libs.moshi.kotlin)
   implementation(libs.okhttp)
+  implementation(libs.androidx.fragment)
   implementation(libs.play.app.update.ktx)
   implementation(libs.play.review.ktx)
   // implementation(libs.play.services.location)
